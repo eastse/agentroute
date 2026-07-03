@@ -84,6 +84,7 @@ bun tauri build    # 构建桌面应用
 .
 ├── .agents/             # Codex/OpenAI 兼容工具使用的 Agent skills
 ├── .claude/             # Claude Code 项目级 skills
+├── .codex/              # Codex 项目配置、hooks 和命令规则
 ├── src/                 # React 前端代码
 │   ├── app/             # 路由、Provider、全局样式
 │   ├── components/      # 通用 UI 组件
@@ -96,15 +97,6 @@ bun tauri build    # 构建桌面应用
 ├── README.md            # 英文 README
 └── README.zh-CN.md      # 中文 README
 ```
-
-## AI 助手支持
-
-本仓库内置了一套共享的 shadcn/ui 助手规则：
-
-- `.agents/skills/shadcn`：供 Codex/OpenAI 兼容的 Agent 工具使用。
-- `.claude/skills/shadcn`：供 Claude Code 使用。Claude Code 会从 `.claude/skills/` 发现项目级 skill。
-
-后续更新 shadcn 规则、示例或 registry 说明时，需要保持两个目录同步。Claude Code 可能需要重启会话并信任当前 workspace 后，项目 skill 以及其中的 `allowed-tools` 权限才会生效。
 
 ## 规划
 

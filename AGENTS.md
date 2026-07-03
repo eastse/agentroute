@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-AgentRoute is a Tauri 2 desktop app with a React/Vite frontend. Frontend code lives in `src/`: `src/app` contains routing and global styles; `src/components` holds reusable UI; `src/features` groups modules; `src/config` and `src/lib` contain shared setup. Rust/Tauri code is in `src-tauri/`. Static files belong in `public/`; assets can live in `assets/`. Do not edit generated output such as `dist/`, `node_modules/`, or `src-tauri/target/`.
+AgentRoute is a Tauri 2 app with React/Vite. Frontend lives in `src/`: `src/app` for routing/styles, `src/components` for reusable UI, `src/features` for modules, and `src/config`/`src/lib` for shared setup. Rust/Tauri code is in `src-tauri/`; static files belong in `public/`. Do not edit generated output: `dist/`, `node_modules/`, or `src-tauri/target/`.
 
 ## Build, Test, and Development Commands
 
@@ -18,19 +18,19 @@ AgentRoute is a Tauri 2 desktop app with a React/Vite frontend. Frontend code li
 
 ## Coding Style & Naming Conventions
 
-Use TypeScript and React function components. Keep feature code under `src/features/<feature-name>`. Prefer kebab-case files such as `github-star-button/index.tsx`; use PascalCase for components and camelCase for variables/functions. Path aliases use `@/` for `src`. Ultracite/Biome handle formatting and linting; `src/components/ui` is excluded in `biome.jsonc`.
+Use TypeScript and React function components. Keep feature code under `src/features/<feature-name>`. Prefer kebab-case files such as `github-star-button/index.tsx`; use PascalCase for components and camelCase for variables/functions. Path aliases use `@/` for `src`. Style UI with Tailwind utilities, prefer `src/components/ui` primitives, and use `cn` for conditional classes. Avoid ad hoc CSS unless shared components cannot express the design. Ultracite/Biome handle formatting and linting; `src/components/ui` is excluded in `biome.jsonc`.
 
-## AI Assistant Files
+## Codex & AI Assistant Files
 
-The shadcn guidance is mirrored in `.agents/skills/shadcn` for Codex/OpenAI-compatible tools and `.claude/skills/shadcn` for Claude Code. Keep both copies synchronized when changing rules, examples, CLI guidance, or assets. Claude Code loads project skills from `.claude/skills/` after the workspace is trusted.
+Codex project defaults live in `.codex/config.toml`; hooks live in `.codex/hooks.json` and `.codex/hooks/`; approval rules live in `.codex/rules/`. These load only after the repo is trusted; review hook changes with `/hooks`. Shadcn guidance is mirrored in `.agents/skills/shadcn` and `.claude/skills/shadcn`; keep both copies synchronized.
 
 ## Testing Guidelines
 
-No frontend test runner is configured yet. When adding tests, colocate them as `*.test.ts` or `*.test.tsx`, and document the command in `package.json` and this file. For Rust/Tauri changes, add unit tests in the relevant module and run the Cargo command above. Run `bun run typecheck` and `bun run check` before opening a PR.
+No frontend test runner is configured. Add tests as `*.test.ts` or `*.test.tsx`, and document the command in `package.json` and this file. For Rust/Tauri changes, add unit tests in the relevant module and run the Cargo command above. Run `bun run typecheck` and `bun run check` before opening a PR.
 
 ## Commit & Pull Request Guidelines
 
-Recent history uses short, direct messages such as `Bump react-router from 7.18.1 to 8.1.0` and merge commits from Dependabot. Use concise imperative commit titles, optionally scoped, for example `Add provider usage summary`. PRs should include a brief purpose, key changes, validation commands, linked issues, and screenshots or recordings for visible UI changes.
+Recent history uses short, direct messages such as `Bump react-router from 7.18.1 to 8.1.0`. Use concise imperative commit titles, optionally scoped, for example `Add provider usage summary`. PRs should include purpose, key changes, validation commands, linked issues, and screenshots or recordings for visible UI changes.
 
 ## Security & Configuration Tips
 

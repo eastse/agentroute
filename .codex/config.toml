@@ -1,0 +1,12 @@
+# Project-scoped Codex defaults for AgentRoute.
+# Loaded only after this repository is trusted by Codex.
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "cached"
+project_doc_max_bytes = 65536
+
+[features]
+hooks = true
+multi_agent = true
+shell_snapshot = true

@@ -1,0 +1,47 @@
+# Project-local Codex command rules for AgentRoute.
+# These apply to commands Codex requests to run outside the sandbox.
+
+prefix_rule(
+    pattern = ["bun", "run", ["typecheck", "build", "check"]],
+    decision = "allow",
+    justification = "AgentRoute validation commands are expected for routine changes.",
+    match = [
+        "bun run typecheck",
+        "bun run build",
+        "bun run check",
+    ],
+)
+
+prefix_rule(
+    pattern = ["cargo", ["check", "test"]],
+    decision = "allow",
+    justification = "Rust validation commands are expected for Tauri changes.",
+    match = [
+        "cargo check --manifest-path src-tauri/Cargo.toml",
+        "cargo test --manifest-path src-tauri/Cargo.toml",
+    ],
+)
+
+prefix_rule(
+    pattern = ["bun", "install"],
+    decision = "prompt",
+    justification = "Dependency installs can update bun.lock and may need network access.",
+)
+
+prefix_rule(
+    pattern = ["bun", "tauri", "dev"],
+    decision = "prompt",
+    justification = "The Tauri dev server is long-running and may reuse local ports.",
+)
+
+prefix_rule(
+    pattern = ["cargo", "update"],
+    decision = "prompt",
+    justification = "Cargo updates can rewrite Cargo.lock and dependency versions.",
+)
+
+prefix_rule(
+    pattern = ["kill"],
+    decision = "prompt",
+    justification = "Stopping local processes should be explicitly reviewed.",
+)

@@ -84,6 +84,7 @@ Vite-exposed variables must use the `VITE_` prefix.
 .
 ├── .agents/             # Agent skills for Codex/OpenAI-compatible tools
 ├── .claude/             # Claude Code project skills
+├── .codex/              # Codex project config, hooks, and command rules
 ├── src/                 # React frontend
 │   ├── app/             # Routes, providers, global styles
 │   ├── components/      # Shared UI components
@@ -96,15 +97,6 @@ Vite-exposed variables must use the `VITE_` prefix.
 ├── README.md            # English README
 └── README.zh-CN.md      # Chinese README
 ```
-
-## AI Assistant Support
-
-This repository includes shared shadcn/ui guidance for coding assistants:
-
-- `.agents/skills/shadcn`: skill files for Codex/OpenAI-compatible agent tooling.
-- `.claude/skills/shadcn`: mirrored skill files for Claude Code, which discovers project skills from `.claude/skills/`.
-
-When updating shadcn rules, examples, or registry guidance, keep both directories in sync. Claude Code may require restarting the session and trusting the workspace before project skills and their `allowed-tools` permissions are active.
 
 ## Roadmap
 
