@@ -1,40 +1,46 @@
 {
-  "build": {
-    "beforeDevCommand": "bun dev",
-    "beforeBuildCommand": "bun run build",
-    "frontendDist": "../dist",
-    "devUrl": "http://localhost:1420"
-  },
-  "bundle": {
-    "active": true,
-    "targets": "all",
-    "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
-    ]
-  },
-  "productName": "create-tauri-react",
-  "version": "0.1.0",
-  "identifier": "com.tauri.app",
-  "plugins": {
-    "process": {
-      "active": true
-    }
-  },
-  "app": {
-    "security": {
-      "csp": null
+    "build": {
+        "beforeDevCommand": "bun dev",
+        "beforeBuildCommand": "bun run build",
+        "frontendDist": "../dist",
+        "devUrl": "http://localhost:1420"
     },
-    "windows": [
-      {
-        "title": "Tauri App",
-        "width": 1000,
-        "height": 600,
-        "dragDropEnabled": false
-      }
-    ]
-  }
+    "bundle": {
+        "active": true,
+        "targets": "all",
+        "icon": [
+            "icons/32x32.png",
+            "icons/128x128.png",
+            "icons/128x128@2x.png",
+            "icons/icon.icns",
+            "icons/icon.ico"
+        ]
+    },
+    "productName": "AgentRoute",
+    "version": "0.1.0",
+    "identifier": "com.tauri.app",
+    "plugins": {
+        "process": {
+            "active": true
+        }
+    },
+    "app": {
+        "security": {
+            "csp": null
+        },
+        "windows": [
+            {
+                "title": "AgentRoute",
+                "titleBarStyle": "Overlay",
+                "hiddenTitle": true,
+                "trafficLightPosition": {
+                    "x": 14,
+                    "y": 14
+                },
+                "width": 1000,
+                "height": 800,
+                "dragDropEnabled": false
+            }
+        ]
+    }
 }

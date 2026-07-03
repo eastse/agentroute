@@ -1,12 +1,12 @@
 import "./global.css";
 
-import AppProvider from "@/app/provider";
-import AppRouter from "@/app/router";
+import AppProvider from "@/app/Provider";
+import AppRouter from "@/app/Router";
 
 export default function App() {
-  return (
-    <AppProvider>
-      <AppRouter />
-    </AppProvider>
-  );
+    return (
+        <AppProvider>
+            <AppRouter />
+        </AppProvider>
+    );
 }
